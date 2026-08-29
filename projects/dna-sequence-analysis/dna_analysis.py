@@ -1,32 +1,44 @@
-# DNA Sequence Analysis
-# Beginner bioinformatics project
+# DNA Sequence Analyzer
+# Beginner Bioinformatics Project
 
-dna = "ATGCGTACGTTAGC"
+dna = input("Enter a DNA sequence: ").upper()
 
-# Sequence length
-length = len(dna)
+# Check if the sequence contains only valid DNA bases
+valid_bases = {"A", "T", "G", "C"}
 
-# Base counts
-a = dna.count("A")
-t = dna.count("T")
-g = dna.count("G")
-c = dna.count("C")
+if not dna:
+    print("Error: Please enter a DNA sequence.")
 
-# GC content
-gc_content = ((g + c) / length) * 100
+elif not set(dna).issubset(valid_bases):
+    print("Error: Invalid DNA sequence.")
+    print("Only A, T, G, and C are allowed.")
 
-# DNA to RNA transcription
-rna = dna.replace("T", "U")
+else:
+    # Sequence length
+    length = len(dna)
 
-print("=== DNA SEQUENCE ANALYSIS ===")
-print("DNA:", dna)
-print("Length:", length)
+    # Base counts
+    a = dna.count("A")
+    t = dna.count("T")
+    g = dna.count("G")
+    c = dna.count("C")
 
-print("\nBase counts:")
-print("A:", a)
-print("T:", t)
-print("G:", g)
-print("C:", c)
+    # GC content
+    gc_content = ((g + c) / length) * 100
 
-print("\nGC content:", round(gc_content, 2), "%")
-print("RNA:", rna)
+    # DNA to RNA transcription
+    rna = dna.replace("T", "U")
+
+    # Display results
+    print("\n=== DNA SEQUENCE ANALYSIS ===")
+    print("DNA sequence:", dna)
+    print("Sequence length:", length)
+
+    print("\nBase counts:")
+    print("A:", a)
+    print("T:", t)
+    print("G:", g)
+    print("C:", c)
+
+    print("\nGC content:", round(gc_content, 2), "%")
+    print("RNA sequence:", rna)
