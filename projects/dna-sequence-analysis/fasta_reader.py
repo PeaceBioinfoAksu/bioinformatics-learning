@@ -22,7 +22,8 @@ c = sequence.count("C")
 
 # GC content
 gc_content = ((g + c) / len(sequence)) * 100
-
+# AT content
+at_content = ((a + t) / len(sequence)) * 100
 # DNA to RNA transcription
 rna = sequence.replace("T", "U")
 # Reverse complement
@@ -39,7 +40,12 @@ print("A:", a)
 print("T:", t)
 print("G:", g)
 print("C:", c)
-
+print("\nBase frequencies:")
+print("A:", round((a / len(sequence)) * 100, 2), "%")
+print("T:", round((t / len(sequence)) * 100, 2), "%")
+print("G:", round((g / len(sequence)) * 100, 2), "%")
+print("C:", round((c / len(sequence)) * 100, 2), "%")
 print("\nGC content:", round(gc_content, 2), "%")
+print("AT content:", round(at_content, 2), "%")
 print("RNA sequence:", rna)
 print("Reverse complement:", reverse_complement);
