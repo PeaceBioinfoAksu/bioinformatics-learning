@@ -1,35 +1,44 @@
-🧬 DNA Sequence Analysis
+# DNA Sequence Analyzer
+# Beginner Bioinformatics Project
 
-Overview
+dna = input("Enter a DNA sequence: ").upper()
 
-This is a beginner bioinformatics project written in Python.
+# Check if the sequence contains only valid DNA bases
+valid_bases = {"A", "T", "G", "C"}
 
-The goal is to practice basic analysis of a DNA sequence using Python.
+if not dna:
+    print("Error: Please enter a DNA sequence.")
 
-What the program does
+elif not set(dna).issubset(valid_bases):
+    print("Error: Invalid DNA sequence.")
+    print("Only A, T, G, and C are allowed.")
 
-- Stores a DNA sequence
-- Calculates the sequence length
-- Counts the number of A, T, G, and C bases
+else:
+    # Sequence length
+    length = len(dna)
 
-Skills Practiced
+    # Base counts
+    a = dna.count("A")
+    t = dna.count("T")
+    g = dna.count("G")
+    c = dna.count("C")
 
-- Python variables
-- Strings
-- "len()"
-- ".count()"
-- Basic biological sequence concepts
+    # GC content
+    gc_content = ((g + c) / length) * 100
 
-Example DNA Sequence
+    # DNA to RNA transcription
+    rna = dna.replace("T", "U")
 
-"ATGCGTACGTTAGC"
+    # Display results
+    print("\n=== DNA SEQUENCE ANALYSIS ===")
+    print("DNA sequence:", dna)
+    print("Sequence length:", length)
 
-Next Steps
+    print("\nBase counts:")
+    print("A:", a)
+    print("T:", t)
+    print("G:", g)
+    print("C:", c)
 
-I plan to expand this project by adding:
-
-- GC content calculation
-- AT content calculation
-- DNA → RNA transcription
-- Reverse-complement analysis
-- More biological sequence analysis
+    print("\nGC content:", round(gc_content, 2), "%")
+    print("RNA sequence:", rna)
