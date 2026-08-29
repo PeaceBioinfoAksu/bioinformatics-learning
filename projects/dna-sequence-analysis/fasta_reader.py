@@ -34,7 +34,13 @@ print("=== FASTA SEQUENCE ANALYSIS ===")
 print("Header:", header)
 print("DNA sequence:", sequence)
 print("Sequence length:", len(sequence))
-
+# Classify sequence length
+if len(sequence) < 20:
+    print("Sequence classification: Short sequence")
+elif len(sequence) < 100:
+    print("Sequence classification: Medium sequence")
+else:
+    print("Sequence classification: Long sequence")
 print("\nBase counts:")
 print("A:", a)
 print("T:", t)
