@@ -20,7 +20,9 @@ gc_content = ((g + c) / len(sequence)) * 100
 
 # DNA to RNA transcription
 rna = sequence.replace("T", "U")
-
+# Reverse complement
+complement = sequence.translate(str.maketrans("ATGC", "TACG"))
+reverse_complement = complement[::-1]
 # Display results
 print("=== FASTA SEQUENCE ANALYSIS ===")
 print("Header:", header)
@@ -35,3 +37,4 @@ print("C:", c)
 
 print("\nGC content:", round(gc_content, 2), "%")
 print("RNA sequence:", rna)
+print("Reverse complement:", reverse_complement)
