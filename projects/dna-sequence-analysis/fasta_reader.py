@@ -8,7 +8,12 @@ with open(filename, "r") as file:
 
 header = lines[0].strip()
 sequence = "".join(line.strip() for line in lines[1:])
+# Validate DNA sequence
+valid_bases = {"A", "T", "G", "C"}
 
+if not set(sequence).issubset(valid_bases):
+    print("Error: FASTA file contains an invalid DNA sequence.")
+    exit()
 # Base counts
 a = sequence.count("A")
 t = sequence.count("T")
@@ -37,4 +42,4 @@ print("C:", c)
 
 print("\nGC content:", round(gc_content, 2), "%")
 print("RNA sequence:", rna)
-print("Reverse complement:", reverse_complement)
+print("Reverse complement:", reverse_complement);
