@@ -1,44 +1,70 @@
-# DNA Sequence Analyzer
-# Beginner Bioinformatics Project
+🧬 DNA Sequence Analyzer
 
-dna = input("Enter a DNA sequence: ").upper()
+Overview
 
-# Check if the sequence contains only valid DNA bases
-valid_bases = {"A", "T", "G", "C"}
+This is a beginner bioinformatics project written in Python.
 
-if not dna:
-    print("Error: Please enter a DNA sequence.")
+The program accepts a DNA sequence from the user, checks whether the sequence is valid, and performs basic sequence analysis.
 
-elif not set(dna).issubset(valid_bases):
-    print("Error: Invalid DNA sequence.")
-    print("Only A, T, G, and C are allowed.")
+Features
 
-else:
-    # Sequence length
-    length = len(dna)
+The program can:
 
-    # Base counts
-    a = dna.count("A")
-    t = dna.count("T")
-    g = dna.count("G")
-    c = dna.count("C")
+- Check whether a DNA sequence contains only valid bases
+- Calculate the sequence length
+- Count A, T, G, and C
+- Calculate GC content
+- Transcribe DNA into RNA
 
-    # GC content
-    gc_content = ((g + c) / length) * 100
+Example
 
-    # DNA to RNA transcription
-    rna = dna.replace("T", "U")
+Input
 
-    # Display results
-    print("\n=== DNA SEQUENCE ANALYSIS ===")
-    print("DNA sequence:", dna)
-    print("Sequence length:", length)
+ATGCGTACGTTAGC
 
-    print("\nBase counts:")
-    print("A:", a)
-    print("T:", t)
-    print("G:", g)
-    print("C:", c)
+Analysis
 
-    print("\nGC content:", round(gc_content, 2), "%")
-    print("RNA sequence:", rna)
+The program reports:
+
+- DNA sequence
+- Sequence length
+- Number of A, T, G, and C bases
+- GC content
+- RNA sequence
+
+Invalid Input
+
+The program also checks for invalid DNA sequences.
+
+For example:
+
+ATGXYZ123
+
+produces an error because the sequence contains characters that are not valid DNA bases.
+
+How to Run
+
+Run "dna_analysis.py" using Python and enter a DNA sequence when prompted.
+
+Skills Practiced
+
+- Python variables
+- User input
+- Conditional statements
+- Sets
+- String methods
+- Basic sequence analysis
+- DNA → RNA transcription
+- Input validation
+
+Future Improvements
+
+- Calculate AT content
+- Calculate reverse complement
+- Analyze FASTA files
+- Accept sequences from files
+- Add more advanced bioinformatics analysis
+
+---
+
+Part of my journey learning Python and bioinformatics. 🧬🐍
