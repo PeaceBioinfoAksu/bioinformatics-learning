@@ -1,0 +1,11 @@
+# Simple DNA sequence analysis
+
+dna = "ATGCGTACGTTAGC"
+
+print("DNA sequence:", dna)
+print("Sequence length:", len(dna))
+
+print("A:", dna.count("A"))
+print("T:", dna.count("T"))
+print("G:", dna.count("G"))
+print("C:", dna.count("C"))
