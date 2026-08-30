@@ -92,6 +92,10 @@ else:
 # Display GC and AT content
 print("\nGC content:", round(gc_content, 2), "%")
 print("AT content:", round(at_content, 2), "%")
+if round(gc_content + at_content, 2) == 100:
+    print("GC + AT check: 100%")
+else:
+    print("Warning: GC + AT content does not equal 100%")
 print("GC interpretation:", gc_interpretation)
 
 # Display RNA and reverse complement
