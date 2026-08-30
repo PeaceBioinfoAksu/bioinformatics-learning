@@ -10,7 +10,9 @@ with open("example.fasta", "r") as file:
 # Get header and DNA sequence
 header = lines[0].strip()
 sequence = "".join(line.strip() for line in lines[1:])
-
+if not sequence:
+    print("Error: No DNA sequence found in the FASTA file.")
+    exit()
 # Count DNA bases
 a = sequence.count("A")
 t = sequence.count("T")
