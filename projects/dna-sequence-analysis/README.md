@@ -1,69 +1,92 @@
-🧬 DNA Sequence Analyzer
+🧬 FASTA Sequence Analyzer
 
 Overview
 
-This is a beginner bioinformatics project written in Python.
+This project is a beginner bioinformatics tool written in Python.
 
-The program accepts a DNA sequence from the user, checks whether the sequence is valid, and performs basic sequence analysis.
+The program reads a DNA sequence from a FASTA file and performs several basic sequence analyses.
 
 Features
 
 The program can:
 
-- Check whether a DNA sequence contains only valid bases
-- Calculate the sequence length
-- Count A, T, G, and C
+- Read a DNA sequence from a FASTA file
+- Extract the FASTA header
+- Validate the DNA sequence
+- Calculate sequence length
+- Count A, T, G, and C bases
+- Calculate base frequencies
 - Calculate GC content
+- Calculate AT content
 - Transcribe DNA into RNA
+- Calculate the reverse complement
+- Check nucleotide diversity
+- Classify the sequence based on length
+- Handle DNA sequences split across multiple FASTA lines
 
-Example
+Example Input
 
-Input
-
+>example_dna_sequence
 ATGCGTACGTTAGC
 
-Analysis
+Example Output
 
-The program reports:
+=== FASTA SEQUENCE ANALYSIS ===
+Header: >example_dna_sequence
+DNA sequence: ATGCGTACGTTAGC
+Sequence length: 14
 
-- DNA sequence
-- Sequence length
-- Number of A, T, G, and C bases
-- GC content
-- RNA sequence
+Base counts:
+A: 3
+T: 4
+G: 4
+C: 3
 
-Invalid Input
+GC content: 50.0 %
+AT content: 50.0 %
+RNA sequence: AUGCGUACGUUAGC
+Reverse complement: GCTAACGTACGCAT
 
-The program also checks for invalid DNA sequences.
+Base frequencies:
+A: 21.43 %
+T: 28.57 %
+G: 28.57 %
+C: 21.43 %
 
-For example:
+Nucleotide diversity: 4 different bases
+The sequence contains all four DNA bases.
 
-ATGXYZ123
+Sequence classification: Short sequence
 
-produces an error because the sequence contains characters that are not valid DNA bases.
+Files
 
-How to Run
-
-Run "dna_analysis.py" using Python and enter a DNA sequence when prompted.
+- "fasta_reader.py" — Main FASTA analysis program
+- "example.fasta" — Example DNA sequence
+- "dna_analysis.py" — Earlier version of the DNA analysis program
 
 Skills Practiced
 
-- Python variables
-- User input
-- Conditional statements
+- Python file handling
+- FASTA format
+- String manipulation
 - Sets
-- String methods
-- Basic sequence analysis
+- Conditional statements
+- Sequence analysis
+- Base composition
+- GC and AT content
 - DNA → RNA transcription
+- Reverse complements
 - Input validation
 
 Future Improvements
 
-- Calculate AT content
-- Calculate reverse complement
-- Analyze FASTA files
-- Accept sequences from files
-- Add more advanced bioinformatics analysis
+- Support multiple FASTA sequences
+- Analyze FASTA files containing many records
+- Add codon analysis
+- Calculate nucleotide statistics for multiple sequences
+- Add command-line arguments
+- Improve error handling
+- Add automated tests
 
 ---
 
