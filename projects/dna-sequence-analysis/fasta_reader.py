@@ -10,6 +10,8 @@ with open("example.fasta", "r") as file:
 # Get header and DNA sequence
 header = lines[0].strip()
 sequence = "".join(line.strip() for line in lines[1:])
+if not header.startswith(">"):
+    print("Warning: FASTA header does not start with '>'.")
 if not sequence:
     print("Error: No DNA sequence found in the FASTA file.")
     exit()
