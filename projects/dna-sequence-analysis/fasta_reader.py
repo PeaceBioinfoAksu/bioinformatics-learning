@@ -11,6 +11,13 @@ print("DNA sequence:", sequence)
 print("DNA sequence:", sequence)
 print("Sequence length:", len(sequence), "bases")
 print("Sequence length:", len(sequence))
+valid_bases = set("ATGC")
+invalid_bases = set(sequence) - valid_bases
+
+if invalid_bases:
+    print("Warning: Invalid DNA bases found:", ", ".join(sorted(invalid_bases)))
+else:
+    print("DNA sequence validation: Valid")
 # Classify sequence length
 if len(sequence) < 20:
     print("Sequence classification: Short sequence")
