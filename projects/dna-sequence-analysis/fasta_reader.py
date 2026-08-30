@@ -1,40 +1,4 @@
-# ==========================================
-# FASTA SEQUENCE ANALYZER
-# Beginner Bioinformatics Project
-# ==========================================
-
-filename = "example.fasta"
-
-with open(filename, "r") as file:
-    lines = file.readlines()
-
-header = lines[0].strip()
-sequence = "".join(line.strip() for line in lines[1:])
-# Validate DNA sequence
-valid_bases = {"A", "T", "G", "C"}
-
-if not set(sequence).issubset(valid_bases):
-    print("Error: FASTA file contains an invalid DNA sequence.")
-    exit()
-# Base counts
-a = sequence.count("A")
-t = sequence.count("T")
-g = sequence.count("G")
-c = sequence.count("C")
-
-# GC content
-gc_content = ((g + c) / len(sequence)) * 100
-# AT content
-at_content = ((a + t) / len(sequence)) * 100
-# Interpret GC content
-if gc_content < 40:
-    gc_interpretation = "Low GC content"
-elif gc_content <= 60:
-    gc_interpretation = "Moderate GC content"
-else:
-    gc_interpretation = "High GC content"
-# DNA to RNA transcription
-rna = sequence.replace("T", "U")
+contains = sequence.replace("T", "U")
 # Reverse complement
 complement = sequence.translate(str.maketrans("ATGC", "TACG"))
 reverse_complement = complement[::-1]
