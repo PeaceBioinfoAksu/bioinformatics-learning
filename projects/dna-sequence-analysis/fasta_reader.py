@@ -71,6 +71,7 @@ if invalid_bases:
     )
 elif "N" in sequence:
     print("DNA sequence validation: Contains ambiguous base N")
+    print("Ambiguous base count:", sequence.count("N"))
 else:
     print("DNA sequence validation: Valid")
 
