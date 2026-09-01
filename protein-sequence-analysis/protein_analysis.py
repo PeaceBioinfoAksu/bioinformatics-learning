@@ -35,18 +35,31 @@ print("Protein length:", length, "amino acids")
 # Count amino acids
 print("\nAmino-acid counts:")
 
+amino_acid_counts = {}
+
 for amino_acid in sorted(valid_amino_acids):
     count = protein.count(amino_acid)
     if count > 0:
+        amino_acid_counts[amino_acid] = count
         print(amino_acid + ":", count)
 
 # Display amino-acid frequencies
 print("\nAmino-acid frequencies:")
 
-for amino_acid in sorted(valid_amino_acids):
-    count = protein.count(amino_acid)
-    if count > 0:
-        frequency = (count / length) * 100
-        print(amino_acid + ":", round(frequency, 2), "%")
+for amino_acid in sorted(amino_acid_counts):
+    count = amino_acid_counts[amino_acid]
+    frequency = (count / length) * 100
+    print(amino_acid + ":", round(frequency, 2), "%")
+
+# Find the most common amino acid
+most_common_amino_acid = max(
+    amino_acid_counts,
+    key=amino_acid_counts.get
+)
+
+most_common_count = amino_acid_counts[most_common_amino_acid]
+
+print("\nMost common amino acid:", most_common_amino_acid)
+print("Most common amino acid count:", most_common_count)
 
 print("\nProtein sequence validation: Valid")
