@@ -92,7 +92,42 @@ molecular_weight = 0
 for amino_acid in protein:
     molecular_weight += amino_acid_masses[amino_acid]
 
-print("\nApproximate molecular weight:",
-      round(molecular_weight, 2), "Da")
+print(
+    "\nApproximate molecular weight:",
+    round(molecular_weight, 2),
+    "Da"
+)
+
+# Define hydrophobic and hydrophilic amino acids
+hydrophobic_amino_acids = set("AVILMFWY")
+hydrophilic_amino_acids = set("RNDQEKHSTCPG")
+
+# Count hydrophobic and hydrophilic amino acids
+hydrophobic_count = 0
+hydrophilic_count = 0
+
+for amino_acid in protein:
+    if amino_acid in hydrophobic_amino_acids:
+        hydrophobic_count += 1
+    elif amino_acid in hydrophilic_amino_acids:
+        hydrophilic_count += 1
+
+# Calculate percentages
+hydrophobic_percentage = (hydrophobic_count / length) * 100
+hydrophilic_percentage = (hydrophilic_count / length) * 100
+
+# Display hydrophobic and hydrophilic analysis
+print("\nHydrophobic and hydrophilic analysis:")
+print("Hydrophobic amino acids:",
+      hydrophobic_count)
+
+print("Hydrophilic amino acids:",
+      hydrophilic_count)
+
+print("Hydrophobic percentage:",
+      round(hydrophobic_percentage, 2), "%")
+
+print("Hydrophilic percentage:",
+      round(hydrophilic_percentage, 2), "%")
 
 print("\nProtein sequence validation: Valid")
