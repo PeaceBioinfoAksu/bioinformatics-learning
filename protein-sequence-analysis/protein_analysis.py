@@ -39,6 +39,7 @@ amino_acid_counts = {}
 
 for amino_acid in sorted(valid_amino_acids):
     count = protein.count(amino_acid)
+
     if count > 0:
         amino_acid_counts[amino_acid] = count
         print(amino_acid + ":", count)
@@ -49,7 +50,12 @@ print("\nAmino-acid frequencies:")
 for amino_acid in sorted(amino_acid_counts):
     count = amino_acid_counts[amino_acid]
     frequency = (count / length) * 100
-    print(amino_acid + ":", round(frequency, 2), "%")
+
+    print(
+        amino_acid + ":",
+        round(frequency, 2),
+        "%"
+    )
 
 # Find the most common amino acid
 most_common_amino_acid = max(
@@ -59,8 +65,11 @@ most_common_amino_acid = max(
 
 most_common_count = amino_acid_counts[most_common_amino_acid]
 
-print("\nMost common amino acid:", most_common_amino_acid)
-print("Most common amino acid count:", most_common_count)
+print("\nMost common amino acid:",
+      most_common_amino_acid)
+
+print("Most common amino acid count:",
+      most_common_count)
 
 # Average amino-acid residue masses in Daltons
 amino_acid_masses = {
@@ -107,27 +116,101 @@ hydrophobic_count = 0
 hydrophilic_count = 0
 
 for amino_acid in protein:
+
     if amino_acid in hydrophobic_amino_acids:
         hydrophobic_count += 1
+
     elif amino_acid in hydrophilic_amino_acids:
         hydrophilic_count += 1
 
-# Calculate percentages
-hydrophobic_percentage = (hydrophobic_count / length) * 100
-hydrophilic_percentage = (hydrophilic_count / length) * 100
+# Calculate hydrophobic and hydrophilic percentages
+hydrophobic_percentage = (
+    hydrophobic_count / length
+) * 100
+
+hydrophilic_percentage = (
+    hydrophilic_count / length
+) * 100
 
 # Display hydrophobic and hydrophilic analysis
 print("\nHydrophobic and hydrophilic analysis:")
-print("Hydrophobic amino acids:",
-      hydrophobic_count)
 
-print("Hydrophilic amino acids:",
-      hydrophilic_count)
+print(
+    "Hydrophobic amino acids:",
+    hydrophobic_count
+)
 
-print("Hydrophobic percentage:",
-      round(hydrophobic_percentage, 2), "%")
+print(
+    "Hydrophilic amino acids:",
+    hydrophilic_count
+)
 
-print("Hydrophilic percentage:",
-      round(hydrophilic_percentage, 2), "%")
+print(
+    "Hydrophobic percentage:",
+    round(hydrophobic_percentage, 2),
+    "%"
+)
+
+print(
+    "Hydrophilic percentage:",
+    round(hydrophilic_percentage, 2),
+    "%"
+)
+
+# Define charged amino acids
+positively_charged = set("KRH")
+negatively_charged = set("DE")
+
+# Count charged amino acids
+positive_count = 0
+negative_count = 0
+
+for amino_acid in protein:
+
+    if amino_acid in positively_charged:
+        positive_count += 1
+
+    elif amino_acid in negatively_charged:
+        negative_count += 1
+
+# Calculate total charged amino acids
+total_charged = positive_count + negative_count
+
+# Calculate net charge tendency
+net_charge = positive_count - negative_count
+
+# Calculate charged amino-acid percentage
+charged_percentage = (
+    total_charged / length
+) * 100
+
+# Display charged amino-acid analysis
+print("\nCharged amino-acid analysis:")
+
+print(
+    "Positively charged amino acids:",
+    positive_count
+)
+
+print(
+    "Negatively charged amino acids:",
+    negative_count
+)
+
+print(
+    "Total charged amino acids:",
+    total_charged
+)
+
+print(
+    "Charged amino-acid percentage:",
+    round(charged_percentage, 2),
+    "%"
+)
+
+print(
+    "Net charge tendency:",
+    net_charge
+)
 
 print("\nProtein sequence validation: Valid")
