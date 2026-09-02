@@ -62,4 +62,37 @@ most_common_count = amino_acid_counts[most_common_amino_acid]
 print("\nMost common amino acid:", most_common_amino_acid)
 print("Most common amino acid count:", most_common_count)
 
+# Average amino-acid residue masses in Daltons
+amino_acid_masses = {
+    "A": 71.08,
+    "C": 103.14,
+    "D": 115.09,
+    "E": 129.12,
+    "F": 147.17,
+    "G": 57.05,
+    "H": 137.14,
+    "I": 113.16,
+    "K": 128.17,
+    "L": 113.16,
+    "M": 131.19,
+    "N": 114.10,
+    "P": 97.12,
+    "Q": 128.13,
+    "R": 156.19,
+    "S": 87.08,
+    "T": 101.11,
+    "V": 99.13,
+    "W": 186.21,
+    "Y": 163.17
+}
+
+# Calculate approximate molecular weight
+molecular_weight = 0
+
+for amino_acid in protein:
+    molecular_weight += amino_acid_masses[amino_acid]
+
+print("\nApproximate molecular weight:",
+      round(molecular_weight, 2), "Da")
+
 print("\nProtein sequence validation: Valid")
