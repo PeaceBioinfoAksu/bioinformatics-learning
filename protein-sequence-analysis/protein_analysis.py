@@ -4,7 +4,7 @@
 # ==========================================
 
 # Get protein sequence from the user
-protein = input("Enter a Enter sequence: ").upper()
+protein = input("Enter a protein sequence: ").upper()
 
 # Check if the sequence is empty
 if not protein:
@@ -290,6 +290,56 @@ print(
 print(
     "Negatively charged percentage:",
     round(negative_percentage, 2),
+    "%"
+)
+
+# Define aromatic amino acids
+aromatic_amino_acids = set("FWY")
+
+# Count aromatic amino acids
+aromatic_count = 0
+
+for amino_acid in protein:
+
+    if amino_acid in aromatic_amino_acids:
+        aromatic_count += 1
+
+# Count each aromatic amino acid
+phenylalanine_count = protein.count("F")
+tryptophan_count = protein.count("W")
+tyrosine_count = protein.count("Y")
+
+# Calculate aromatic percentage
+aromatic_percentage = (
+    aromatic_count / length
+) * 100
+
+# Display aromatic amino-acid analysis
+print("\nAromatic amino-acid analysis:")
+
+print(
+    "Phenylalanine (F):",
+    phenylalanine_count
+)
+
+print(
+    "Tryptophan (W):",
+    tryptophan_count
+)
+
+print(
+    "Tyrosine (Y):",
+    tyrosine_count
+)
+
+print(
+    "Total aromatic amino acids:",
+    aromatic_count
+)
+
+print(
+    "Aromatic amino-acid percentage:",
+    round(aromatic_percentage, 2),
     "%"
 )
 
