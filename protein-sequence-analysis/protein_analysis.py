@@ -4,7 +4,7 @@
 # ==========================================
 
 # Get protein sequence from the user
-protein = input("Enter a protein sequence: ").upper()
+protein = input("Enter a Enter sequence: ").upper()
 
 # Check if the sequence is empty
 if not protein:
@@ -211,6 +211,86 @@ print(
 print(
     "Net charge tendency:",
     net_charge
+)
+
+# Define amino-acid chemical classes
+nonpolar_amino_acids = set("AVILMFWPG")
+polar_amino_acids = set("STNQCY")
+
+# Count amino acids in each chemical class
+nonpolar_count = 0
+polar_count = 0
+
+for amino_acid in protein:
+
+    if amino_acid in nonpolar_amino_acids:
+        nonpolar_count += 1
+
+    elif amino_acid in polar_amino_acids:
+        polar_count += 1
+
+# Calculate chemical-class percentages
+nonpolar_percentage = (
+    nonpolar_count / length
+) * 100
+
+polar_percentage = (
+    polar_count / length
+) * 100
+
+positive_percentage = (
+    positive_count / length
+) * 100
+
+negative_percentage = (
+    negative_count / length
+) * 100
+
+# Display chemical-class analysis
+print("\nAmino-acid chemical class analysis:")
+
+print(
+    "Nonpolar amino acids:",
+    nonpolar_count
+)
+
+print(
+    "Nonpolar percentage:",
+    round(nonpolar_percentage, 2),
+    "%"
+)
+
+print(
+    "Polar amino acids:",
+    polar_count
+)
+
+print(
+    "Polar percentage:",
+    round(polar_percentage, 2),
+    "%"
+)
+
+print(
+    "Positively charged amino acids:",
+    positive_count
+)
+
+print(
+    "Positively charged percentage:",
+    round(positive_percentage, 2),
+    "%"
+)
+
+print(
+    "Negatively charged amino acids:",
+    negative_count
+)
+
+print(
+    "Negatively charged percentage:",
+    round(negative_percentage, 2),
+    "%"
 )
 
 print("\nProtein sequence validation: Valid")
